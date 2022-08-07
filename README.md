@@ -23,7 +23,7 @@ python dataset_union.py
 
 This step will pre-fetch all transactions and receipts from the blockchain. Will probably take 10+ hours.
 
-Here is a [generated dataset](https://drive.google.com/file/d/1ZWXeFg_GDjSB7Lw3YPsRB60s6pA57C6c/view?usp=sharing), you can download it and put it in the `dataset/kovan` folder.
+If you want to skip the generating, here is a [generated dataset](https://drive.google.com/file/d/1ZWXeFg_GDjSB7Lw3YPsRB60s6pA57C6c/view?usp=sharing), you can download it and put it in the `dataset/kovan` folder.
 
 ### Start the server
 
