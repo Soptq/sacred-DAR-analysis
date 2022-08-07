@@ -6,7 +6,7 @@ import config
 from tqdm import tqdm
 from fastapi import FastAPI
 
-from classifier import ManualGasPriceClassifier, SmallBlocknumIntervalClassifier, SameSumTxnsClassifier
+from classifier import ManualGasPriceClassifier, BlocknumIntervalClassifier, SameSumTxnsClassifier
 
 
 def load_dataset():
@@ -21,7 +21,7 @@ def load_dataset():
 def init_classifiers():
     return [
         ManualGasPriceClassifier(threshold=10),
-        SmallBlocknumIntervalClassifier(),
+        BlocknumIntervalClassifier(),
         SameSumTxnsClassifier(),
     ]
 

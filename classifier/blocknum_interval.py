@@ -1,13 +1,14 @@
 from .base import Classifier
 
 
-class SmallBlocknumIntervalClassifier(Classifier):
-    def __init__(self, max_interval=6355):
+class BlocknumIntervalClassifier(Classifier):
+    def __init__(self, min_interval=0, max_interval=6355):
         super().__init__()
         self.storage = {
             "deposit": [],
             "withdraw": [],
         }
+        self.min_interval = min_interval
         self.max_interval = max_interval
 
     def process(self, contract_address, hash_, txn, receipt):
@@ -47,7 +48,7 @@ class SmallBlocknumIntervalClassifier(Classifier):
                 possible_withdraws = [
                     w["address"] for w in self.storage["withdraw"]
                     if w["contract_address"] == interacted_contract
-                       and w["block_number"] - max_blocknum <= self.max_interval
+                       and self.min_interval <= w["block_number"] - max_blocknum <= self.max_interval
                        and w["address"] != address
                        and w["address"] not in ret
                 ]
@@ -57,7 +58,7 @@ class SmallBlocknumIntervalClassifier(Classifier):
                 possible_deposits = [
                     d["address"] for d in self.storage["deposit"]
                     if d["contract_address"] == interacted_contract
-                       and d["block_number"] - min_blocknum <= self.max_interval
+                       and self.min_interval <= d["block_number"] - min_blocknum <= self.max_interval
                        and d["address"] != address
                        and d["address"] not in ret
                 ]

@@ -1,3 +1,3 @@
 from .manual_gas_price import ManualGasPriceClassifier
-from .small_blocknum_interval import SmallBlocknumIntervalClassifier
+from .blocknum_interval import BlocknumIntervalClassifier
 from .same_sum_txns import SameSumTxnsClassifier
