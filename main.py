@@ -33,8 +33,6 @@ dataset = load_dataset()
 print("Loaded...")
 
 for contract_address, transactions in dataset.items():
-    if contract_address != "0xf43D169bd8feCc36344a08669620FB29490E677c":
-        continue
     for transaction_hash, data in tqdm(transactions.items()):
         for classifier in classifiers:
             classifier.process(contract_address, transaction_hash, data["txn"], data["receipt"])
