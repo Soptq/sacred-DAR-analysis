@@ -1,1 +1,1 @@
-web: cp config.py.example config.py && gdown --fuzzy https://drive.google.com/file/d/1ZWXeFg_GDjSB7Lw3YPsRB60s6pA57C6c/view\?usp\=sharing -O dataset/kovan/dataset.pickle && uvicorn main:app --host 0.0.0.0 --port 80 --reload
+web: uvicorn main:app --host 0.0.0.0 --port 80 --reload
