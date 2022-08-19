@@ -8,7 +8,7 @@ class ManualGasPriceClassifier(Classifier):
         self.counter = {}
         self.threshold = threshold
 
-    def process(self, contract_address, hash_, txn, receipt):
+    def process(self, contract_address, hash_, txn, receipt, rest):
         contract_address = contract_address.lower()
         func_hash = txn["input"][:10]
         account = txn["from"].lower()

@@ -11,7 +11,7 @@ class BlocknumIntervalClassifier(Classifier):
         self.min_interval = min_interval
         self.max_interval = max_interval
 
-    def process(self, contract_address, hash_, txn, receipt):
+    def process(self, contract_address, hash_, txn, receipt, rest):
         contract_address = contract_address.lower()
         func_hash = txn["input"][:10]
         account = txn["from"].lower()
