@@ -42,3 +42,15 @@ http://127.0.0.1:8000/classify/{address}
 ```
 
 This API will return a list containing addresses that are classified to be related with the provided address.
+
+```
+http://127.0.0.1:8000/check/{address}
+```
+
+This API will check if the wallet is eligible for depositing by checking if the address have interactions with blacklisted addresses. You can specify the blacklisted addresses in `config.py`.
+
+```
+http://127.0.0.1:8000/log/{txid}
+```
+
+This API will add the transaction to the dataset.

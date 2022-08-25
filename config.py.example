@@ -2,3 +2,5 @@ ETHERSCAN_API_KEY = ""
 INFURA_KEY = ""
 
 DATASET_PATH = "./dataset/kovan"
+
+INTERACTED_WITH_BLACKLIST = []
