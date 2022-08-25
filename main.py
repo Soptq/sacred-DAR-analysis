@@ -129,12 +129,12 @@ def classify(address: str, q: Union[str, None] = None):
 
 @app.get("/check/{address}")
 def check(address: str, q: Union[str, None] = None):
-    blacklist = [addr.lower() for addr in INTERACTED_WITH_BLACKLIST]
-
     history_transactions = get_transactions_by_etherscan(address)
     for transaction in history_transactions:
-        if transaction["to"].lower() in blacklist:
-            return {"result": "false"}
+        for blacklist in INTERACTED_WITH_BLACKLIST:
+            if transaction["to"].lower() == blacklist["address"].lower() \
+                    and transaction["input"][:10].lower() == blacklist["method"].lower():
+                return {"result": "false"}
 
     return {"result": "true"}
 

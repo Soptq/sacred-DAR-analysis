@@ -3,4 +3,11 @@ INFURA_KEY = ""
 
 DATASET_PATH = "./dataset/kovan"
 
+# Example:
+# INTERACTED_WITH_BLACKLIST = [
+#     {
+#         "address": "0x910Cbd523D972eb0a6f4cAe4618aD62622b39DbF",
+#         "method": "0x21a0adb6",
+#     }
+# ]
 INTERACTED_WITH_BLACKLIST = []
